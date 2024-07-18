@@ -1,5 +1,4 @@
-import { defaults } from "joi"
-import App from "../App"
+
 import { Appbar } from "../components/Appbar"
 import { BACKEND_URL } from "../congif"
 import axios from "axios"

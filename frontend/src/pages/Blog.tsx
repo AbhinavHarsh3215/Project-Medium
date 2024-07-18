@@ -1,6 +1,4 @@
-import App from "../App.tsx";
 import { Appbar } from "../components/Appbar.tsx";
-import { BlogCard } from "../components/BlogCard"
 import { FullBlog } from "../components/FullBlog.tsx";
 import { Spinner } from "../components/Spinner.tsx";
 import { useBlog } from "../hooks/index.ts"
