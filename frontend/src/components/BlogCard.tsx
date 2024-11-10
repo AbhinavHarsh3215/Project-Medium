@@ -10,7 +10,7 @@ interface BlogCardType{
 
 export const BlogCard=({authorName,title,content,publishedDate,id}:BlogCardType)=>{
 return <Link to={`/blog/${id}`}> 
-    <div className="border-b border-slate-200 pb-4 p-4 w-screen max-w-screen-md cursor-pointer">
+    <div className="blog-card mt-5 mb-5 border-b border-slate-200 pb-4 p-4 w-screen max-w-screen-md cursor-pointer">
         <div className="flex">
             <Avatar size="small" name={authorName}/>
             <div className="font-extralight pl-2 text-sm flex justify-center flex-col">  
@@ -19,7 +19,6 @@ return <Link to={`/blog/${id}`}>
             <div className="pl-2 font-thin text-slate-400 text-sm flex justify-center flex-col">
                 {publishedDate}
             </div>
-             
         </div>
         <div className="text-xl font-semibold pt-2">
             {title}
