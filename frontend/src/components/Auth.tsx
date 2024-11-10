@@ -25,8 +25,8 @@ export const Auth=({type}:{type:"signup" | "signin"})=>{
             navigate("/blogs");
         } catch (e) {
             console.error("Error during request:", e);
-            if (e.response) {
-                console.error("Backend Response:", e.response.data);
+            if ((e as any).response) {
+                console.error("Backend Response:", (e as any).response.data);
             }
             alert("Error while signing up/signing in");
         }
