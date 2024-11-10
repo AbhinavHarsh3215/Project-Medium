@@ -15,7 +15,7 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete this blog?")) {
             try {
-                const response = await fetch(`${BACKEND_URL}/${blog.id}`, {
+                const response = await fetch(`${BACKEND_URL}/api/v1/blog/${blog.id}`, {
                     method: "DELETE",
                     headers: {
                         "Authorization": `${token}`
@@ -38,7 +38,7 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
     const handleUpdate = async () => {
         if (editMode) {
             try {
-                const response = await fetch(`${BACKEND_URL}/${blog.id}`, {
+                const response = await fetch(`${BACKEND_URL}/api/v1/blog/${blog.id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
