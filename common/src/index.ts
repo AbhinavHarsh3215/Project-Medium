@@ -16,7 +16,7 @@ export const createBlogInput = z.object({
 export const updateBlogInput = z.object({
     title:z.string(),
     content:z.string(),
-    id:z.number(),
+    id:z.string(),
 })
 
 //below types are required by frontend and the above types are used by backend

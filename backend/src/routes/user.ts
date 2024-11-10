@@ -40,12 +40,15 @@ userRouter.post('/signup', async(c) => {
   })
   
 userRouter.post('/signin', async (c) => {  
-    const body = await c.req.json();
-    const {success}=signinInput.safeParse(body);
-    if(!success){
-        c.status(400);
-        return c.json({error:"Invalid input"})
-    }
+  const body = await c.req.json();
+  console.log("Received body:", body);  // Log the incoming request body
+
+  const { success } = signinInput.safeParse(body);
+  if (!success) {
+    console.error("Validation failed:", signinInput.safeParse(body).error);  // Log Zod validation errors
+    c.status(400);
+    return c.json({ error: "Invalid input" });
+  }
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL	,
     }).$extends(withAccelerate());
