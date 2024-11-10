@@ -3,6 +3,7 @@ import { Blog } from "../hooks";
 import { Avatar } from "./BlogCard";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../congif"
 
 export const FullBlog = ({ blog }: { blog: Blog }) => {
     const [editMode, setEditMode] = useState(false);
@@ -14,7 +15,7 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete this blog?")) {
             try {
-                const response = await fetch(`http://127.0.0.1:8787/api/v1/blog/${blog.id}`, {
+                const response = await fetch(`${BACKEND_URL}/${blog.id}`, {
                     method: "DELETE",
                     headers: {
                         "Authorization": `${token}`
@@ -37,7 +38,7 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
     const handleUpdate = async () => {
         if (editMode) {
             try {
-                const response = await fetch(`http://127.0.0.1:8787/api/v1/blog/${blog.id}`, {
+                const response = await fetch(`${BACKEND_URL}/${blog.id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
